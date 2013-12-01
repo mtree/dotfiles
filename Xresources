@@ -1,28 +1,37 @@
-! vi: commentstring=!%s
-Xcursor.theme: DMZ-Black
-Xcursor.size: 16
-Xft.antialias: 1
+!XFT
+Xft.lcdfilter : lcddefault
+Xft.dpi       : 90
+Xft.hintstyle : hintfull
+Xft.hinting   : true
+Xft.antialias : true
+Xft.rgba      : rgb
 Xft.autohint: 0
-! Depend on auto-detection for the correct DPI value
-! Xft.dpi                                : 96.0
-Xft.hinting: 1
-Xft.hintstyle: hintfull
-Xft.lcdfilter: lcddefault
-Xft.rgba: rgb
 
-URxvt.font:xft:Ubuntu Mono:medium:pixelsize=16
-URxvt.boldFont:xft:Ubuntu Mono:medium:pixelsize=16
+URxvt.font:xft:Ubuntu Mono:pixelsize=15
+URxvt.boldFont:xft:Ubuntu Mono:pixelsize=15
+!URxvt.font        : xft:Envy Code R:pixelsize=16
+!URxvt.font: xft:Inconsolata for Powerline:size=14
+
+URxvt.letterSpace : -1
+URxvt.termName    : rxvt-256color
+URxvt.iso14755    : false
 
 URxvt*scrollBar: false
-URxvt*reverseVideo: false
 URxvt*saveLines: 60000
 URxvt*cursorBlink: false
+URxvt.scrollstyle : rxvt
 
-URxvt.perl-ext-common: matcher
-URxvt*url-launcher: x-www-browser
-URxvt*urlLauncher: x-www-browser
-URxvt*iso14755: false
-URxvt*iso14755_52: false
+URxvt.perl-ext-common : default,keyboard-select,url-select,clipboard
+URxvt.keysym.M-x           : perl:keyboard-select:activate
+URxvt.keysym.M-u           : perl:url-select:select_next
+URxvt.keysym.M-c           : perl:clipboard:copy
+URxvt.keysym.M-v           : perl:clipboard:paste
+URxvt.keysym.M-s           : perl:keyboard-select:search
+URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
+URxvt.url-select.launcher  : firefox
+URxvt.url-select.autocopy  : true
+URxvt.url-select.underline : true
+
 
 ! TomorrowNightEighties
 #define t_background        #2d2d2d
