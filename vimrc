@@ -169,13 +169,14 @@ au FileType python set foldmethod=indent foldlevel=99
 " python-module related settings
 
 let g:pymode_rope = 1
-map <leader>j :RopeGotoDefinition<CR>
+"map <leader>j :RopeGotoDefinition<CR>
 "map <leader>r :RopeRename<CR>
-let g:pymode_rope_autocomplete_map = '<tab>'
+let g:pymode_rope_goto_definition_bind = '<leader>j'
+"let g:pymode_rope_autocomplete_map = '<tab>'
 
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8,pylint,mccabe"
-let g:pymode_lint_ignore = "C0110"
+let g:pymode_lint_checkers = ['pyflakes', 'pylint', 'pep8']
+let g:pymode_lint_ignore = "C0110,C0111"
 
 let g:pymode_virtualenv = 1
 let g:pymode_utils_whitespaces = 1
@@ -188,21 +189,21 @@ set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 
-" Add the virtualenv's site-packages to vim path
-if has('python')
-py << EOF
-import os.path
-import sys
-import vim
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
-endif
-
-" Load up virtualenv's vimrc if it exists
-if filereadable($VIRTUAL_ENV . '/.vimrc')
-    source $VIRTUAL_ENV/.vimrc
-endif
+"" Add the virtualenv's site-packages to vim path
+"if has('python')
+"py << EOF
+"import os.path
+"import sys
+"import vim
+"if 'VIRTUAL_ENV' in os.environ:
+"    project_base_dir = os.environ['VIRTUAL_ENV']
+"    sys.path.insert(0, project_base_dir)
+"    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"    execfile(activate_this, dict(__file__=activate_this))
+"EOF
+"endif
+"
+"" Load up virtualenv's vimrc if it exists
+"if filereadable($VIRTUAL_ENV . '/.vimrc')
+"    source $VIRTUAL_ENV/.vimrc
+"endif
